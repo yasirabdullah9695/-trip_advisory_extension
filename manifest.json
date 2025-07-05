@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "TripAdvisor Review Summarizer (Fixed)",
+  "version": "1.1",
+  "description": "Scrape TripAdvisor reviews and summarize them using Hugging Face's BART model.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://*.tripadvisor.com/*",
+    "https://*.tripadvisor.in/*",
+    "https://*.tripadvisor.co.uk/*",
+    "https://api.apify.com/*",
+    "https://api-inference.huggingface.co/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  
+  "content_scripts": [
+    {"matches": [
+  "https://*.tripadvisor.com/*",
+  "https://*.tripadvisor.in/*",
+  "https://*.tripadvisor.co.uk/*"
+
+],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
